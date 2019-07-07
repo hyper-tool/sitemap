@@ -24,8 +24,9 @@ foreach ($base_uris as $base_uri) {
 $urls = array_unique($urls);
 $sitemap = new Sitemap(__DIR__ . '/sitemap.xml');
 // add some URLs
+$now_time = time();
 foreach ($urls as $url) {
-    $sitemap->addItem($url);
+    $sitemap->addItem($url, $now_time, 'always', 1);
 }
 // write it
 $sitemap->write();
